@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="loginstyles.css">
+    <title>صفحة تسجيل الدخول</title>
+</head>
+<body>
+    <div class="container">
+        <h2 class="login-title">تـسجيل الدخـول</h2>
+        <form id="loginForm">
+            <label>اسم المستخدم</label>
+            <input type="text" id="loginUsername" required>
+
+            <label>كلمة المرور</label>
+            <input type="password" id="loginPassword" required>
+            <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
+            <button type="submit">تسجيل الدخول</button>
+
+            <div class="rememper-me">
+                <input type="checkbox" id="rememperme">
+                <label for="rememperme">تذكرني</label>
+            </div>
+        </form>
+        <p id="loginMessage"></p>
+        <p>__________________________________</p>
+        <p class="social-login-title">او تسجيل الدخول باستخدام </p>
+        <div class="social-buttons">
+            <button class="social-btn google">G</button>
+            <button class="social-btn github">GH</button>
+        </div>
+        <p><a href="ISB.html"> لايوجد لديك حسـاب؟</a></p>
+    </div>
+    
+    <script src="login.js"></script>
+</body>
+</html>
+
