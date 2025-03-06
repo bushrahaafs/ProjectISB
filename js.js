@@ -9,7 +9,7 @@ document.getElementById("registerForm").addEventListener("submit", function(even
     let confirmPassword = document.getElementById("confirmPassword").value;
     let message = document.getElementById("message");
 
-   
+    // التحقق من صحة كلمة المرور
     let passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
     if (!passwordRegex.test(password)) {
         message.style.color = "red";
@@ -17,12 +17,14 @@ document.getElementById("registerForm").addEventListener("submit", function(even
         return;
     } 
 
+    // التحقق من تطابق كلمة المرور
     if (password !== confirmPassword) {
         message.style.color = "red";
         message.textContent = "كلمة المرور غير متطابقتين";
         return;
     }
 
+    // التحقق من وجود المستخدم
     let users = JSON.parse(localStorage.getItem("users")) || [];
     let userExists = users.some(user => user.username === username || user.email === email);
 
@@ -32,14 +34,23 @@ document.getElementById("registerForm").addEventListener("submit", function(even
         return;
     }
 
+    // إضافة المستخدم إلى localStorage
     users.push({ firstName, lastName, username, email, password });
     localStorage.setItem("users", JSON.stringify(users));
 
+    // عرض رسالة النجاح
     message.style.color = "green";
     message.textContent = "تم التسجيل بنجاح";
+
+    // إعادة التوجيه إلى صفحة home بعد 2 ثانية (لتوضيح رسالة النجاح)
+    setTimeout(function() {
+        localStorage.setItem("loggedIn", "true");  // إضافة قيمة loggedIn بعد تسجيل الدخول بنجاح
+        window.location.href = "home.html"; // التوجيه إلى صفحة home
+    }, 2000);
+
+    // مسح البيانات بعد التسجيل
     document.getElementById("registerForm").reset();
 });
-
 
 
 
