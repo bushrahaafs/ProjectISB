@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (savedUsername && savedPassword) {
         document.getElementById("loginUsername").value = savedUsername;
         document.getElementById("loginPassword").value = savedPassword;
-        document.getElementById("rememperme").checked = true;
+        document.getElementById("rememberMe").checked = true;
+
     }
 });
 
@@ -14,7 +15,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
 
     let username = document.getElementById("loginUsername").value.trim();
     let password = document.getElementById("loginPassword").value;
-    let rememberMe = document.getElementById("rememperme").checked;
+    let rememberMe = document.getElementById("rememberMe").checked;
     let loginMessage = document.getElementById("loginMessage");
 
     // البحث عن اليوزر في localStorage
