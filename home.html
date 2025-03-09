@@ -12,7 +12,7 @@
     </style>
 </head>
 <body>
-    <!-- هنا الزر المستخدم لتسجيل الخروج -->
+    
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
         <div class="row w-100 text-center">
             <div class="col-12">
@@ -24,24 +24,23 @@
     <script>
         // التحقق إذا كان المستخدم قد سجل دخوله
         if (localStorage.getItem("loggedIn") !== "true") {
-            // إذا لم يكن مسجلاً دخول، يتم إعادة توجيهه إلى صفحة تسجيل الدخول
+            // إذا مو مسجل دخول، يتم إعادة توجيهه إلى صفحة تسجيل الدخول
             window.location.replace("login.html");
         }
 
-        // منع العودة إلى صفحة تسجيل الدخول بعد تسجيل الدخول
-        // نستخدم pushState لتغيير الـ History (تاريخ التصفح) بحيث لا يستطيع المستخدم العودة
+        
         history.pushState(null, null, window.location.href);
         
-        // إذا حاول المستخدم الضغط على زر العودة (back) في المتصفح، سنعيد توجيهه إلى نفس الصفحة
+
         window.onpopstate = function() {
             history.pushState(null, null, window.location.href);
         };
 
-        // عندما يضغط المستخدم على زر تسجيل الخروج
+    
         document.querySelector("#logoutButton").addEventListener("click", function () {
-            // إزالة علامة الدخول من localStorage
+            
             localStorage.removeItem("loggedIn");
-            // بعد تسجيل الخروج، نعيد توجيه المستخدم إلى صفحة تسجيل الدخول
+            
             window.location.replace("login.html");
         });
     </script>
