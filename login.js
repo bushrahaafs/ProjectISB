@@ -34,12 +34,12 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
             localStorage.removeItem("savedUsername");
             localStorage.removeItem("savedPassword");
         }
-//يمنع الرجول
         localStorage.setItem("loggedIn", "true");
 
         setTimeout(function () {
             window.location.replace("home.html");
         }, 800);
+
     } else {
         loginMessage.style.color = "red";
         loginMessage.textContent = "اسم المستخدم أو كلمة المرور غير صحيحة";

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +9,12 @@
         body {
             display: flex;
             height: 100vh;
+            font-family: 'Tajawal', sans-serif;
         }
         .right-section {
             width: 50%;
             background: url('KSA.png') no-repeat center center;
-            background-size: 100% 100%;
+            background-size: cover;
         }
         .left-section {
             width: 50%;
@@ -21,9 +22,6 @@
             justify-content: center;
             align-items: center;
             background: linear-gradient(90deg, #A7B6A9 10%, #EDE7D9 90%);
-
-
- 
         }
         .login-container {
             background: white;
@@ -32,13 +30,22 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 90%;
             max-width: 400px;
+            text-align: right;
         }
         .text-secondary {
-            font-size: 0.8rem; 
+            font-size: 0.9rem;
             color: #6c757d; 
         }
-
-
+        .form-control {
+            text-align: right;
+        }
+        .form-check {
+            display: flex;
+            align-items: center;
+        }
+        .form-check input {
+            margin-left: 5px;
+        }
     </style>
 </head>
 <body>
@@ -46,18 +53,19 @@
         <div class="login-container">
             <h4 class="mb-3 text-center">تسجيل الدخول</h4>
             <form id="loginForm">
-                <div class="mb-3 text-end">
-                    <input type="text" id="loginUsername" class="form-control text-end" placeholder="اسم المستخدم" required>
+                <div class="mb-3">
+                    <input type="text" id="loginUsername" class="form-control" placeholder="اسم المستخدم" required>
                 </div>
-                <div class="mb-3 text-end">
-                    <input type="password" id="loginPassword" class="form-control text-end" placeholder="كلمة المرور" required>
+                <div class="mb-3">
+                    <input type="password" id="loginPassword" class="form-control" placeholder="كلمة المرور" required>
                 </div>
-                <div class="mb-3 text-start">
+                <!-- تعديل لمحاذاة "نسيت كلمة المرور" على اليسار -->
+                <div class="mb-3 d-flex justify-content-between">
+                    <div class="form-check">
+                        <input type="checkbox" id="rememberMe">
+                        <label for="rememberMe" class="text-secondary">تذكرني</label>
+                    </div>
                     <a href="#" class="text-decoration-none text-secondary">نسيت كلمة المرور؟</a>
-                </div>
-                <div class="mb-3 form-check text-end">
-                    <label for="rememberMe" class="ms-2 text-secondary">تذكرني</label>
-                    <input type="checkbox" id="rememberMe">
                 </div>
                 <button type="submit" class="btn btn-dark w-100">تسجيل الدخول</button>
                 <p id="loginMessage" class="text-center mt-2"></p>

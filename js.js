@@ -34,15 +34,14 @@ document.getElementById("registerForm").addEventListener("submit", function(even
         return;
     }
 
-    // إضافة المستخدم إلى localStorage
+    // اضافه المستخدم الى localStorage
     users.push({ firstName, lastName, username, email, password });
     localStorage.setItem("users", JSON.stringify(users));
 
-    // عرض رسالة النجاح
+
     message.style.color = "green";
     message.textContent = "تم التسجيل بنجاح";
 
-    // إعادة التوجيه إلى صفحة home بعد 2 ثانية (لتوضيح رسالة النجاح)
     setTimeout(function() {
         localStorage.setItem("loggedIn", "true");  // إضافة قيمة loggedIn بعد تسجيل الدخول بنجاح
         window.location.href = "home.html"; // التوجيه إلى صفحة home
